@@ -28,7 +28,6 @@ files {
     url varchar
     created_at timestamp
     updated_at timestamp
-    person_id integer
 }
 
 movies {
