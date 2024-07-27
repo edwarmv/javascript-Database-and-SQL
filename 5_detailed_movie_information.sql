@@ -4,7 +4,7 @@ SELECT
   movies.release_date as "Release date",
   movies.duration as "Duration(minutes)",
   movies.description as "Description",
-  json_agg(files) as "Poster",
+  row_to_json(files) as "Poster",
   json_build_object('ID', persons.id,'First Name',persons.first_name,'Last Name', persons.last_name) as "Director"
 FROM
   movies
@@ -24,5 +24,6 @@ WHERE
       '02:15:00'::time
   )
 AND genres."name" in ('Action','Drama')
-GROUP BY movies.id, persons.id
+GROUP BY movies.id, persons.id, files.id
 ;
+
