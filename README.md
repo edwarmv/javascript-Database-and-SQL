@@ -48,6 +48,7 @@ movies }|--|| persons : "has a director"
 movies ||--|| files : "has a poster"
 movies ||--|| countries : "is produced in a country"
 movies }|--|{ genres : "is produced in a country"
+movies }|--|{ characters : "have characters"
 
 countries {
     name varchar
@@ -70,7 +71,7 @@ characters {
     person_id integer
 }
 
-characters ||--o| persons : "can be played by a person"
+characters ||--o{ persons : "can be played by a person"
 
 persons {
     first_name varchar
